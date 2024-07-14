@@ -15,7 +15,6 @@ function App() {
      element: <Layout/>,
      children:[
       {index:true , element: <Home/>},
-    // {path:"/customerservice", element: <CustomerService/>},
     {path:"/charts/:id", element: <Charts/>},
   {path:"*", element:<h1 className='text-center'>Page Not Found</h1>}
      ]
