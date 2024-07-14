@@ -2,7 +2,6 @@ import { useContext, useState } from 'react'
 import './App.css'
 import Home from './components/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import CustomerService from './components/CustomerService/CustomerService';
 import Layout from './components/Layout/Layout';
 import DataContextProvider from './context/DataContext';
 import Charts from './components/Charts/Charts';

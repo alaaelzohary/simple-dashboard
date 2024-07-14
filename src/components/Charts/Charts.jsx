@@ -73,7 +73,7 @@ export default function Charts() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Total Amount" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
     </div>
