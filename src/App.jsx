@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import DataContextProvider from './context/DataContext';
 import Charts from './components/Charts/Charts';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
 
@@ -13,9 +14,9 @@ function App() {
      path:"/",
      element: <Layout/>,
      children:[
-      {index:true , element: <Home/>},
-    {path:"/charts/:id", element: <Charts/>},
-  {path:"*", element:<h1 className='text-center'>Page Not Found</h1>}
+      {path:"/simple-dashboard" , element: <Home/>},
+    {path:"/simple-dashboard/charts/:id", element: <Charts/>},
+  {path:"*", element:<NotFound/>}
      ]
     }]
   )

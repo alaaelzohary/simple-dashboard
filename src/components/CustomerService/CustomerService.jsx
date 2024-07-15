@@ -25,7 +25,7 @@ export default function CustomerService() {
   }, []);
 
   const handleCustomerClick = (customerId) => {
-    navigate(`/charts/${customerId}`);
+    navigate(`/simple-dashboard/charts/${customerId}`);
   };
 
   return (

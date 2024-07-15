@@ -8,6 +8,7 @@ export default function Charts() {
   const [transactionsCharts, setTransactionsCharts] = useState([]);
   const [customersCharts, setCustomersCharts] = useState([]);
   const [chartData, setChartData] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
   const { id } = useParams();
   const [customerName, setCustomerName] = useState('');
 
@@ -35,11 +36,16 @@ export default function Charts() {
           acc[date] = { date, amount: 0 };
         }
         acc[date].amount += transaction.amount;
+        console.log(acc)
+        const total = customerTransactions.reduce((sum, transaction) => sum + transaction.amount, 0);
+      setTotalAmount(total);
+
         return acc;
       }, {});
 
       setChartData(Object.values(aggregatedData));
     }
+    
   }, [id, transactionsCharts]);
 
   useEffect(() => {
@@ -51,11 +57,11 @@ export default function Charts() {
     }
   }, [id, customersCharts]);
 
-
+  
   return (
     <div className="min-h-screen p-12">
     <div className="w-[80%] h-[20rem] mx-auto mt-10">
-      <h2 className="m-10 uppercase text-2xl text-blue-800">{customerName}</h2>
+      <h2 className="m-10 uppercase text-2xl font-semibold">Total amount for {customerName} : <span className="text-blue-500 font-normal"> {totalAmount} egp</span></h2>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={500}
@@ -73,7 +79,7 @@ export default function Charts() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="Total Amount" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
     </div>
